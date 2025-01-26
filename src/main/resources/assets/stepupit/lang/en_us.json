@@ -1,0 +1,7 @@
+{
+  "message.stepupit.off" : "§6[stepupit]:All Off",
+  "message.stepupit.autojumpenable" : "§6[stepupit]:AutoJump Enable",
+  "message.stepupit.stepupitenable" : "§6[stepupit]:StepUpIt Enable",
+  "key.category.stepupit" : "Step It Up",
+  "key.stepupit.switch_state" : "Switch Mode"
+}
