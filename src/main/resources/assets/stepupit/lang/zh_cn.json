@@ -1,7 +1,7 @@
 {
-  "message.stepupit.off" : "§6[平滑上坡]:自动跳跃已关闭",
-  "message.stepupit.autojumpenable" : "§6[平滑上坡]:自动跳跃已开启",
-  "message.stepupit.stepupitenable" : "§6[平滑上坡]:平滑上坡已开启",
-  "key.category.stepupit" : "平滑上坡",
+  "message.stepupit.off" : "§3[§eStepUpIt§3] §a自动跳跃已关闭",
+  "message.stepupit.autojumpenable" : "§3[§eStepUpIt§3] §a自动跳跃已启用",
+  "message.stepupit.stepupitenable" : "§3[§eStepUpIt§3] §a平滑上坡已启用",
+  "key.category.stepupit" : "StepUpIt",
   "key.stepupit.switch_state" : "切换模式"
 }
