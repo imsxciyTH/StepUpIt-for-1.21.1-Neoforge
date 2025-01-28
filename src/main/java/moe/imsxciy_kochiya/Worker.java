@@ -4,15 +4,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.player.PlayerEvent;
+import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import static moe.imsxciy_kochiya.Config.JUMP_STATE;
 import static moe.imsxciy_kochiya.StepUpIt.MODID;
 
-@EventBusSubscriber(modid = MODID)
+@EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.GAME, value = Dist.CLIENT)
 public class Worker {
     public static int jumpState;
 
@@ -58,18 +59,21 @@ public class Worker {
     }
 
     @SubscribeEvent
-    public static void LoginMessage(PlayerEvent.PlayerLoggedInEvent event){
-        Player player = event.getEntity();
+    public static void LoginMessage(ClientPlayerNetworkEvent.LoggingIn event){
+        Player player = event.getPlayer();
         jumpState = JUMP_STATE.get();
         switch (jumpState){
             case 0:
                 player.sendSystemMessage(Component.translatable("message.stepupit.off"));
+                Minecraft.getInstance().options.autoJump().set(false);
                 break;
             case 1:
                 player.sendSystemMessage(Component.translatable("message.stepupit.autojumpenable"));
+                Minecraft.getInstance().options.autoJump().set(true);
                 break;
             case 2:
                 player.sendSystemMessage(Component.translatable("message.stepupit.stepupitenable"));
+                Minecraft.getInstance().options.autoJump().set(false);
                 break;
         }
     }
